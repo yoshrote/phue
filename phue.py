@@ -576,7 +576,7 @@ class Bridge(object):
         """ Lookup a light id based on string name. Case-sensitive. """
         lights = self.get_light()
         for light_id in lights:
-            if PY3K:
+            if PY3K or isinstance(name, unicode):
                 if name == lights[light_id]['name']:
                     return light_id
             else:
